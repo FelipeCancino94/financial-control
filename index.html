@@ -6,26 +6,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- imports -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  <title>Document</title>
+  <link href="css/style.css" rel="stylesheet">
+  <title>Presupuesto</title>
 </head>
 <body>
-  <div class="container">
-    <h1>Cuentas del hogar</h1>
+  <div id="contenedor-principal" class="container-fluid">
+    <h1 class="text-center mt-3 text-primary">Cuentas del hogar</h1>
     <div class="accounts">
       <div class="month-select mb-3">
-        <select class="form-select">
-          <option selected disabled>Selecciona el mes</option>
-          <option value="08-2023">Agosto 2023</option>
-          <option value="09-2023">Septiembre 2023</option>
-          <option value="10-2023">Octubre 2023</option>
-          <option value="11-2023">Noviembre 2023</option>
+        <select id="selectMes" class="form-select my-5" aria-label="Default select example">
+          <option selected>Escoge el mes</option>
+          <option value="1">Enero</option>
+          <option value="2">Febrero</option>
+          <option value="3">Marzo</option>
+          <option value="4">Abril</option>
+          <option value="5">Mayo</option>
+          <option value="6">Junio</option>
+          <option value="7">Julio</option>
+          <option value="8">Agosto</option>
+          <option value="9">Septiembre</option>
+          <option value="10">Octubre</option>
+          <option value="11">Noviembre</option>
+          <option value="12">Diciembre</option>
         </select>
       </div>
       <div class="summary">
-        <div class="info-summary">
-          <p class="text-secondary fs-3 mb-0 d-flex justify-content-between">Disponible <strong>$800.00</strong></p>
-          <p class="text-danger fs-3 mb-0 d-flex justify-content-between">Gastado <strong>$600.00</strong></p>
-          <p class="text-success fs-3 mb-0 d-flex justify-content-between">Saldo <strong><span>+</span>$200.00</strong></p>
+        <div class="border-bottom border-3 border-light m-3">
+          <p class="text-center fw-bold fs-2 mb-4">Gasto Mensual</p>
+          <div id="presupuesto" class="d-flex flex-column justify-content-center align-items-center">
+            <div class="item-gastos alert alert-primary ">
+                <p>Presupuesto: $ <span id="total"></span> </p>
+            </div>
+            <div class="item-gastos alert alert-danger">
+                <p>Gasto: $ <span id="gasto"></span></p>
+            </div>
+            <div class="item-gastos alert alert-success">
+              <p>Restante: $ <span id="restante"></span></p>
+            </div>
+          </div>
         </div>
         <div class="info-graphics">
           <p class="my-3 py-5 text-center bg-secondary text-white fs-1">Graphics coming soon</p>
@@ -33,17 +51,24 @@
       </div>
       <div class="table-buys">
         <div class="input-group mb-3">
-          <input type="text" aria-label="First name" class="form-control">
-          <span class="input-group-text">$</span>
-          <input type="text" aria-label="Last name" class="form-control" placeholder="0.00">
-          <button class="btn btn-outline-primary" type="button" id="button-addon2">Añadir</button>
+          <div>
+            <p class="m-3 fw-lighter fs-4">Agregrar gasto</p>
+            <form id="agregar-gasto" action="#">
+              <div class="form-group d-flex flex-row">
+                <label for="gasto">Gasto:</label>
+                <input type="text" class="form-control mx-3 mb-4" id="gasto" placeholder="Nombre Gasto">
+              </div>
+                <div class="form-group d-flex flex-row">
+                <label for="cantidad">Cantidad:</label>
+                <input type="text" class="form-control mx-3" id="cantidad" placeholder="Cantidad en $">
+              </div>
+    
+               <button type="submit" class="m-3 btn btn-primary">Agregar</button>
+            </form>
+    
+          </div>
         </div>
         <div class="buys">
-          <div class="buy">
-            <p>01/08/2023</p>
-            <p>Pago arriendo</p>
-            <p>$1275</p>
-          </div>
           <table class="table table-striped">
             <thead>
               <tr>
@@ -63,6 +88,8 @@
     </div>
   </div>
   <!-- scripts -->
+  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  <script src="dist/index.js"></script>
 </body>
 </html>

@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+.form-select {
+    width: 200px;
+    margin: auto;
+}
+.form-control {
+    width: 200px;
+}
+.item-gastos{
+    padding: 10px;
+    width: 250px;
+}
+p {
+    margin-bottom: 0;
+}
+
