@@ -1,6 +1,7 @@
-* {
-    margin: 0;
+body {
+    margin: auto;
     box-sizing: border-box;
+    width: 70%;
 }
 .form-select {
     width: 200px;
@@ -16,4 +17,10 @@
 p {
     margin-bottom: 0;
 }
-
+@media only screen and (min-width: 992px) {
+    .summary{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
