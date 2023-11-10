@@ -1,0 +1,11 @@
+.spent {
+  border-radius: 1rem;
+}
+
+.spent:nth-child(odd) {
+  background-color: #E0F4FF;
+}
+
+.spent:nth-child(even) {
+  background-color: #87C4FF;
+}
