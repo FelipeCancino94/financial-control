@@ -1,5 +1,8 @@
+import { useState, useEffect } from "react";
 import SelectMonths from "../SelectMonths/SelectMonths";
 import Spent from "../Spent/Spent";
+
+const url = 'https://financial-control-app-b3538-default-rtdb.firebaseio.com/'
 
 function SpentList() {
   const listOfMonthsSpends = [
@@ -16,7 +19,18 @@ function SpentList() {
       monthDate: '12-2023'
     }
   ]
-  const listOfSpents = [
+
+  const [listOfSpents, setSpendsList] = useState([])
+  useEffect(() => {
+    fetch(`${url}/spends`)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        setSpendsList(data)
+      })
+  }, [])
+
+  /* const listOfSpents = [
     {
       id: 0,
       description: "Hamburguesa A&W",
@@ -38,7 +52,7 @@ function SpentList() {
       value: 39.98,
       category: "Navidad"
     }
-  ]
+  ] */
 
   return (
     <div className="spent-list p-5">
