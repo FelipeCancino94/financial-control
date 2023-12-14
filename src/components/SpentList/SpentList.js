@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Spent from "../Spent/Spent";
+import { url, token } from "../../connections/index";
 
 
 function SpentList() {
@@ -20,10 +21,6 @@ function SpentList() {
       monthDate: '2023-12'
     }
   ]
-
-  const url = 'http://localhost:1337/api';
-  const token = '3e63c09d9ae6d6360cb6061e6b4bdd78f157e15166ca2491db6f3733e0601fb1d69b6f1d431d1a1242687598500bf8bb7e0c44e9f0d0a302c8b6272c31a0e73133d89e205d13d9489108e9810a53de4c3fc98aebcb5ec52786e2299e747fd338e7833f82316349e9fe2956d380efc6d39490885168d82d1b78f44c5e3108da2b';
-
 
   function getSpends(startDate, endDate) {
     if (startDate === undefined) {
