@@ -1,0 +1,16 @@
+.add-spent {
+  max-height: 0;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 200ms ease-in-out;
+}
+
+.add-spent:not(.open) {
+  padding: 0;
+}
+
+.add-spent.open {
+  max-height: 267px;
+  opacity: 1;
+}
