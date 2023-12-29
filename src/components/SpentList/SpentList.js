@@ -10,36 +10,39 @@ function SpentList() {
   const listOfMonthsSpends = [
     {
       id: 0,
-      monthName: 'Noviembre',
-      yearName: '2023',
-      monthDate: '2023-11'
+      monthName: 'Enero',
+      yearName: '2024',
+      monthDate: '2024-01'
     },
     {
       id: 1,
-      monthName: 'Diciembre',
-      yearName: '2023',
-      monthDate: '2023-12'
+      monthName: 'Febrero',
+      yearName: '2024',
+      monthDate: '2024-02'
     }
   ]
 
   function getSpends(startDate, endDate) {
     if (startDate === undefined) {
-      startDate = '2023-11';
+      startDate = '2024-01';
     }
     if (endDate === undefined) {
-      endDate = '2023-12';
+      endDate = '2024-02';
     }
-    fetch(url + `/spends?filters[date][$gte]=${ startDate }-01&filters[date][$lt]=${ endDate }-01`, {
+    fetch(url + `spends`, {
       method: 'GET',
-      headers: {
+      /* headers: {
         'Content-Type': 'application/json',
-        'authorization': `Bearer ${ token }`
-      }
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'mode': 'no-cors'
+        // 'authorization': `Bearer ${ token }`
+      } */
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.data);
-        setSpendsList(data.data);
+        console.log(data);
+        setSpendsList(data);
       })
   }
 
@@ -59,7 +62,7 @@ function SpentList() {
         }
       </select>
       {
-        listOfSpents?.map((spent) => <Spent key={ spent.id } spent={ spent.attributes }></Spent>)
+        listOfSpents?.map((spent) => <Spent key={ spent.id } spent={ spent }></Spent>)
       }
     </div>
   )

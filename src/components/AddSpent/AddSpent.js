@@ -16,24 +16,28 @@ function AddSpent() {
     const descriptionInput = document.querySelector('#description').value;
     const categoryInput = document.querySelector('#category').value;
     const priceInput = document.querySelector('#price').value;
+    const date = new Date();
 
     const data = {
-      data: {
-        description: descriptionInput,
-        category: categoryInput,
-        value: Number(priceInput),
-        date: new Date()
-      }
+      description: descriptionInput,
+      date: `${ date.getFullYear() }-${ date.getMonth() + 1 }-${ date.getDate() }`,
+      value: Number(priceInput),
+      category: categoryInput
     }
 
-    fetch(url + '/spends', {
+    fetch(url + 'spends', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'authorization': `Bearer ${ token }`
+        'Content-Type': 'application/json'
+        // 'authorization': `Bearer ${ token }`
       },
       body: JSON.stringify(data)
     })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        window.location.reload();
+      })
   }
 
   return (
