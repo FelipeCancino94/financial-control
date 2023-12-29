@@ -11,6 +11,7 @@
 }
 
 .add-spent.open {
+  margin-top: 5px;
   max-height: 267px;
   opacity: 1;
 }

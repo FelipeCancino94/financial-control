@@ -30,14 +30,17 @@ function AddSpent() {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'authorization': `Bearer ${ token }`
+        'authorization': `Bearer ${token}`
       },
       body: JSON.stringify(data)
     })
   }
 
   return (
-    <div className="fixed bottom-5 end-5 w-1/3">
+    <div className="fixed ms-4 ">
+      <div className="btn-add-spent flex items-center justify-center text-center text-3xl px-2 py-2 bg-sky-500 text-white rounded-full hover:bg-sky-400 transition ease-in-out mt-3 cursor-pointer" onClick={() => toggleSpentForm()}>
+        + <span className="text-lg ms-3">Agregar gasto</span>
+      </div>
       <form className="add-spent p-2 bg-gray-200 rounded-lg">
         <div>
           <label htmlFor="price" className="block text-sm font-medium leading-6 text-gray-900">
@@ -86,14 +89,12 @@ function AddSpent() {
         </div>
 
         <div className="flex justify-end">
-          <button type="button" className="px-5 py-2 bg-sky-500 text-white rounded-lg hover:bg-sky-400 transition ease-in-out mt-3" onClick={ () => addNewSpent() }>
+          <button type="button" className="px-5 py-2 bg-sky-500 text-white rounded-lg hover:bg-sky-400 transition ease-in-out mt-3" onClick={() => addNewSpent()}>
             Agregar
           </button>
         </div>
       </form>
-      <div className="btn-add-spent flex items-center justify-center text-center text-3xl px-2 py-2 bg-sky-500 text-white rounded-full hover:bg-sky-400 transition ease-in-out mt-3 cursor-pointer" onClick={ () => toggleSpentForm() }>
-        + <span className="text-lg ms-3">Agregar gasto</span>
-      </div>
+
     </div>
   )
 }

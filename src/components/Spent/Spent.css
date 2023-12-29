@@ -1,5 +1,8 @@
 .spent {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0 30px;
   border-radius: 1rem;
+  border: solid white 1px;
 }
 
 .spent:nth-child(odd) {
