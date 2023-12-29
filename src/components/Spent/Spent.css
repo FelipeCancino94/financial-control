@@ -4,11 +4,12 @@
   border-radius: 1rem;
   border: solid white 1px;
 }
-
-.spent:nth-child(odd) {
-  background-color: #E0F4FF;
+.spent[category="comida"]{
+  background-color: rgb(246, 190, 85);
 }
-
-.spent:nth-child(even) {
-  background-color: #87C4FF;
+.spent[category="compras"]{
+  background-color: rgb(118, 192, 214);
+}
+.spent[category="gasolina"]{
+  background-color: rgb(240, 231, 99);
 }
