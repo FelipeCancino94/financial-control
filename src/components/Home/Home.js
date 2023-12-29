@@ -4,8 +4,9 @@ import AddSpent from "../AddSpent/AddSpent";
 function Home() {
   return (
     <div className="home">
-      <SpentList></SpentList>
+      
       <AddSpent></AddSpent>
+      <SpentList></SpentList>
     </div>
   )
 }
