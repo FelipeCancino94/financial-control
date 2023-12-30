@@ -38,11 +38,11 @@ function AddSpent() {
   }
 
   return (
-    <div className="ms-4" >
-      <div className="btn-add-spent z-10 fixed right-3 w-28 flex items-center justify-center text-center text-3xl px-2 py-2 text-white bg-lime-400 rounded-full hover:bg-lime-400 transition ease-in-out mt-3 cursor-pointer" onClick={() => toggleSpentForm()}>
+    <div className="ms-4 z-10 relative " dir="rtl">
+      <div className="btn-add-spent fixed top-5 right-0 px-5 py-3 w-28 flex items-center justify-center text-center text-3xl px-2 py-2 text-white bg-lime-400 rounded-full hover:bg-lime-400 transition ease-in-out mt-3 cursor-pointer" onClick={() => toggleSpentForm()}>
         + <span className="text-lg ms-3 hidden">Agregar gasto</span>
       </div>
-      <form className="add-spent relative top-16 p-2 mt-3 rounded-lg">
+      <form className="add-spent p-2 mt-3 rounded-lg">
         <div>
           <label htmlFor="price" className="block text-sm font-medium leading-6 text-gray-900">
             Descripcion
