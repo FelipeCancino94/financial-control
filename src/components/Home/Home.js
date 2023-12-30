@@ -1,10 +1,8 @@
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
 import SpentList from "../SpentList/SpentList";
 import AddSpent from "../AddSpent/AddSpent";
-import { useState } from "react";
 
 function Home() {
-  const [logged, setLogged] = useState(false);
   const provider = new GoogleAuthProvider();
   const auth = getAuth();
 
@@ -19,9 +17,10 @@ function Home() {
           const user = result.user;
           // IdP data available using getAdditionalUserInfo(result)
           // ...
-          console.log(token);
-          console.log(user);
-          setLogged(true);
+          sessionStorage.setItem('user', JSON.stringify(auth.currentUser));
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000);
         }).catch((error) => {
           // Handle Errors here.
           const errorCode = error.code;
@@ -42,7 +41,10 @@ function Home() {
       const auth = getAuth();
       signOut(auth).then(() => {
         // Sign-out successful.
-        window.location.reload();
+        sessionStorage.removeItem('user');
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
       }).catch((error) => {
         // An error happened.
       });
@@ -52,7 +54,7 @@ function Home() {
   };
 
 
-  if (!logged) {
+  if (sessionStorage.getItem('user') === null || sessionStorage.getItem('user') === undefined) {
     return (
       <div className="home">
         <div className="flex items-center flex-col gap-4 min-h-screen	justify-center	">
