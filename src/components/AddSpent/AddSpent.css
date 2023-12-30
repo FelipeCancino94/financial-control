@@ -5,12 +5,23 @@
   opacity: 0;
   transition: all 200ms ease-in-out;
 }
-
 .add-spent:not(.open) {
   padding: 0;
 }
-
 .add-spent.open {
+  margin-top: 5px;
+  margin-bottom: 50px;
   max-height: 267px;
   opacity: 1;
+  background-image: linear-gradient(to bottom right, rgb(111, 192, 198), rgb(184, 215, 245));
 }
+
+@media only screen and (min-width: 480px) {
+  span.hidden{
+    display: block;
+  }
+  div.btn-add-spent{
+    width: 300px;
+    z-index: 2;
+  }
+  }
