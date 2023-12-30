@@ -49,7 +49,7 @@ function SpentList() {
   }, []);
 
   return (
-    <div className="spent-list p-5 pb-0">
+    <div className="spent-list p-5 pb-0 relative md:absolute">
       <select className="mb-5 text-2xl" value={ selectedMonth } onChange={ e => {
         setSelectedMonth(e.target.value);
         getSpends(e.target.value, e.target.value === '2023-12' ? '2024-01' : e.target.value.split('-')[0] + '-' + (parseInt(e.target.value.split('-')[1]) + 1))

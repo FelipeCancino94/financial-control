@@ -37,10 +37,9 @@ function AddSpent() {
   }
 
   return (
-    <div className="static ms-4" style={{
-      width: 300 }}>
+    <div className="absolute rigth-2  ms-4 w-14" >
       <div className="btn-add-spent flex items-center justify-center text-center text-3xl px-2 py-2 bg-sky-500 text-white rounded-full hover:bg-sky-400 transition ease-in-out mt-3 cursor-pointer" onClick={() => toggleSpentForm()}>
-        + <span className="text-lg ms-3">Agregar gasto</span>
+        + <span className="text-lg ms-3 hidden">Agregar gasto</span>
       </div>
       <form className="add-spent p-2 bg-gray-300 rounded-lg">
         <div>

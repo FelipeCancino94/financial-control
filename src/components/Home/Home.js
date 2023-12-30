@@ -4,7 +4,6 @@ import AddSpent from "../AddSpent/AddSpent";
 function Home() {
   return (
     <div className="home">
-      
       <AddSpent></AddSpent>
       <SpentList></SpentList>
     </div>
