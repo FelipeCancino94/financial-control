@@ -4,6 +4,7 @@
   margin: 0 30px;
   border-radius: 1rem;
   border: solid white 1px;
+  grid-template-columns: repeat(3, 1fr) 100px 100px;
 }
 .spent[category="comida"]{
   background-color: rgb(246, 190, 85);
