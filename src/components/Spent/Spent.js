@@ -1,8 +1,9 @@
-import { url, token } from "../../connections/index";
+// import { url, token } from "../../connections/index";
 import './Spent.css'
 
 function Spent({ spent }) {
-  function deleteSpent(id) {
+  /* function deleteSpent(id) {
+
     const data = {
       id: id
     };
@@ -19,15 +20,21 @@ function Spent({ spent }) {
         console.log(data);
         window.location.reload();
       })
+  } */
+
+  function toDateTime(secs) {
+    var t = new Date(1970, 0, 1); // Epoch
+    t.setSeconds(secs);
+    return String(t);
   }
 
   return (
     <div className="spent grid">
       <p className="p-5">{ spent.description }</p>
-      <p className="p-5">{ spent.date }</p>
+      {<p className="p-5">{ toDateTime(spent.date.seconds) }</p>}
       <p className="p-5">{ spent.value }</p>
       <p className="p-5">{ spent.category }</p>
-      <button className="bg-red-700 text-white px-4" onClick={ () => deleteSpent(spent.id) }>Borrar</button>
+      {/* <button className="bg-red-700 text-white px-4" onClick={ () => deleteSpent(spent.id) }>Borrar</button> */}
     </div>
   )
 }

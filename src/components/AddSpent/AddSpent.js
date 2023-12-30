@@ -1,4 +1,5 @@
-import { url, token } from "../../connections/index";
+import { db } from '../../connections/index';
+import { getDocs, collection, addDoc } from 'firebase/firestore';
 import './AddSpent.css';
 
 function AddSpent() {
@@ -12,7 +13,9 @@ function AddSpent() {
     return;
   };
 
-  function addNewSpent() {
+  const spendsCollectionRef = collection(db, 'spends');
+
+  const addNewSpent = async () => {
     const descriptionInput = document.querySelector('#description').value;
     const categoryInput = document.querySelector('#category').value;
     const priceInput = document.querySelector('#price').value;
@@ -20,24 +23,18 @@ function AddSpent() {
 
     const data = {
       description: descriptionInput,
-      date: `${ date.getFullYear() }-${ date.getMonth() + 1 }-${ date.getDate() }`,
+      date: new Date(),
       value: Number(priceInput),
       category: categoryInput
     }
 
-    fetch(url + 'spends', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-        // 'authorization': `Bearer ${ token }`
-      },
-      body: JSON.stringify(data)
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        window.location.reload();
-      })
+    try {
+      await addDoc(spendsCollectionRef, data)
+      window.location.reload();
+    }
+    catch (error) {
+      console.error(error);
+    }
   }
 
   return (
