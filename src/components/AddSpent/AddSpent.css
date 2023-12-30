@@ -9,7 +9,7 @@
   padding: 0;
 }
 .add-spent.open {
-  margin-top: 5px;
+  margin-top: 7rem;
   max-height: 267px;
   opacity: 1;
   background-image: linear-gradient(to bottom right, rgb(111, 192, 198), rgb(184, 215, 245));
