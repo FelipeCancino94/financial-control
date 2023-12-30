@@ -38,11 +38,11 @@ function AddSpent() {
   }
 
   return (
-    <div className="absolute rigth-2  ms-4 w-14" >
-      <div className="btn-add-spent flex items-center justify-center text-center text-3xl px-2 py-2 bg-sky-500 text-white rounded-full hover:bg-sky-400 transition ease-in-out mt-3 cursor-pointer" onClick={() => toggleSpentForm()}>
+    <div className="ms-4" >
+      <div className="btn-add-spent z-10 fixed right-2 w-28 flex items-center justify-center text-center text-3xl px-2 py-2 text-white bg-lime-600 rounded-full hover:bg-lime-400 transition ease-in-out mt-3 cursor-pointer" onClick={() => toggleSpentForm()}>
         + <span className="text-lg ms-3 hidden">Agregar gasto</span>
       </div>
-      <form className="add-spent p-2 bg-gray-300 rounded-lg">
+      <form className="add-spent relative top-16 p-2 mt-3 rounded-lg">
         <div>
           <label htmlFor="price" className="block text-sm font-medium leading-6 text-gray-900">
             Descripcion
@@ -66,6 +66,7 @@ function AddSpent() {
             <select id="category" className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
               <option value="comida">Comida</option>
               <option value="compras">Compras</option>
+              <option value="antojo">Antojos</option>
               <option value="gasolina">Gasolina</option>
             </select>
           </div>
@@ -90,7 +91,7 @@ function AddSpent() {
         </div>
 
         <div className="flex justify-end">
-          <button type="button" className="px-5 py-2 bg-sky-500 text-white rounded-lg hover:bg-sky-400 transition ease-in-out mt-3" onClick={() => addNewSpent()}>
+          <button type="button" className="px-5 py-2 bg-lime-600 text-white rounded-lg hover:bg-lime-400 transition ease-in-out mt-3" onClick={() => addNewSpent()}>
             Agregar
           </button>
         </div>

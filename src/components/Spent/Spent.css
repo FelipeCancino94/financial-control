@@ -1,7 +1,7 @@
 .spent {
   display: flex;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  margin: 0 30px;
+  margin: 0 3px;
   border-radius: 1rem;
   border: solid white 1px;
   grid-template-columns: repeat(3, 1fr) 100px 100px;
@@ -12,6 +12,14 @@
 .spent[category="compras"]{
   background-color: rgb(118, 192, 214);
 }
+.spent[category="antojo"]{
+  background-color: rgb(205, 138, 236);
+}
 .spent[category="gasolina"]{
   background-color: rgb(240, 231, 99);
 }
+@media only screen and (min-width: 480px) {
+  p.date{
+    display: flex;
+  }
+  }

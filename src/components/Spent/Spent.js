@@ -31,7 +31,7 @@ function Spent({ spent }) {
   return (
     <div className="spent grid justify-between" category={spent.category}>
       <p className="p-5">{ spent.description }</p>
-      {<p className="p-5">{ toDateTime(spent.date.seconds) }</p>}
+      {<p className="p-5 hidden date">{ toDateTime(spent.date.seconds) }</p>}
       <p className="p-5">{ spent.value }</p>
       <p className="p-5">{ spent.category }</p>
       {/* <button className="bg-red-700 text-white px-4" onClick={ () => deleteSpent(spent.id) }>Borrar</button> */}
