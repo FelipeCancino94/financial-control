@@ -64,8 +64,8 @@ function Home() {
   } else {
     return (
       <div className="home">
-        <SpentList></SpentList>
         <AddSpent></AddSpent>
+        <SpentList></SpentList>
         <button className="absolute top-0 end-0 px-5 py-3 text-blue-600 hover:text-blue-100 transition ease-in-out" onClick={ () => logout() }>Log out</button>
       </div>
     )
