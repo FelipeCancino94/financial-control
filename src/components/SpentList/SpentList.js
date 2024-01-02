@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Spent from "../Spent/Spent";
+import MonthlyBalance from "../MonthlyBalance/MonthlyBalance";
 
 import { db } from '../../connections/index';
 import { getDocs, collection } from 'firebase/firestore';
@@ -59,7 +60,6 @@ function SpentList() {
         const data = await getDocs(spendsCollectionRef);
         const filteredData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
         setSpendsList(filteredData);
-        console.log(filteredData);
       }
       catch (error) {
         console.error(error);
@@ -70,19 +70,22 @@ function SpentList() {
   }, []);
 
   return (
-    <div className="spent-list px-2 pb-0 relative md:absolute">
-      <select className="mt-5 mb-5 text-2xl" value={ selectedMonth } onChange={ e => {
-        setSelectedMonth(e.target.value);
-        // getSpends(e.target.value, e.target.value === '2023-12' ? '2024-01' : e.target.value.split('-')[0] + '-' + (parseInt(e.target.value.split('-')[1]) + 1))
-      } }>
+    <>
+      <div className="spent-list px-2 pb-0 relative md:absolute">
+        <select className="mt-5 mb-5 text-2xl" value={ selectedMonth } onChange={ e => {
+          setSelectedMonth(e.target.value);
+          // getSpends(e.target.value, e.target.value === '2023-12' ? '2024-01' : e.target.value.split('-')[0] + '-' + (parseInt(e.target.value.split('-')[1]) + 1))
+        } }>
+          {
+            listOfMonthsSpends?.map((month) => <option key={ month.id } value={ month.monthDate }>{ month.monthName } { month.yearName }</option>)
+          }
+        </select>
         {
-          listOfMonthsSpends?.map((month) => <option key={ month.id } value={ month.monthDate }>{ month.monthName } { month.yearName }</option>)
+          listOfSpents?.map((spent) => <Spent key={ spent.id } spent={ spent }></Spent>)
         }
-      </select>
-      {
-        listOfSpents?.map((spent) => <Spent key={ spent.id } spent={ spent }></Spent>)
-      }
-    </div>
+      </div>
+      <MonthlyBalance listOfSpents={ listOfSpents }></MonthlyBalance>
+    </>
   )
 }
 
