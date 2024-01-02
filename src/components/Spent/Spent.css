@@ -21,6 +21,11 @@
   background-color: rgb(240, 231, 99);
 }
 
+.spent[category="salario"]{
+  background-color: rgb(59, 241, 42);
+  color: #fff;
+}
+
 .spent .left-column {
   align-items: flex-start;
   display: flex;
