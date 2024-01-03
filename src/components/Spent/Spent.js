@@ -25,15 +25,23 @@ function Spent({ spent }) {
   function toDateTime(secs) {
     var t = new Date(1970, 0, 1); // Epoch
     t.setSeconds(secs);
-    return String(t);
+    return `${ t.getDate() }-${ t.getMonth() + 1 }-${ t.getFullYear() }`;
+  }
+
+  function toCurrency(value) {
+    return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
   }
 
   return (
-    <div className="spent grid justify-between px-3" category={spent.category}>
-      <p className="py-5">{ spent.description }</p>
-      {<p className="py-5 hidden date">{ toDateTime(spent.date.seconds) }</p>}
-      <p className="py-5">{ spent.value }</p>
-      <p className="py-5">{ spent.category }</p>
+    <div className="spent p-3 grid mb-2" category={spent.category}>
+      <div className="left-column">
+        <p className="date leading-none">{ toDateTime(spent.date.seconds) }</p>
+        <p className="text-xs pe-4 leading-none">{ spent.description }</p>
+      </div>
+      <div className="right-column">
+        <p className="text-xl text-right leading-none">{ spent.category === 'salario' ? `+ ${ toCurrency(spent.value) }`: `- ${ toCurrency(spent.value) }` }</p>
+        <p className="text-right leading-none">{ spent.category }</p>
+      </div>
       {/* <button className="bg-red-700 text-white px-4" onClick={ () => deleteSpent(spent.id) }>Borrar</button> */}
     </div>
   )

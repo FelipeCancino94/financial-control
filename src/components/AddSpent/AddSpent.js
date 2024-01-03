@@ -38,13 +38,10 @@ function AddSpent() {
   }
 
   return (
-    <div className="ms-4 z-10 relative " dir="rtl">
-      <div className="btn-add-spent fixed top-5 right-0 px-5 py-3 w-28 flex items-center justify-center text-center text-3xl px-2 py-2 text-white bg-lime-400 rounded-full hover:bg-lime-400 transition ease-in-out mt-3 cursor-pointer" onClick={() => toggleSpentForm()}>
-        + <span className="text-lg ms-3 hidden">Agregar gasto</span>
-      </div>
-      <form className="add-spent p-2 mt-3 rounded-lg">
+    <div className="z-10 fixed bottom-4 right-2 w-11/12 flex flex-col items-end">
+      <form className="add-spent p-2 mt-3 rounded-lg w-full">
         <div>
-          <label htmlFor="price" className="block text-sm font-medium leading-6 text-gray-900">
+          <label htmlFor="price" className="block text-left text-sm font-medium leading-6 text-gray-900">
             Descripcion
           </label>
           <div className="relative mt-2 rounded-md shadow-sm">
@@ -52,28 +49,29 @@ function AddSpent() {
               type="text"
               name="description"
               id="description"
-              className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              className="block text-left w-full rounded-md border-0 py-2 px-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
               placeholder="Hamborguesita"
             />
           </div>
         </div>
 
         <div>
-          <label htmlFor="price" className="block text-sm font-medium leading-6 text-gray-900">
+          <label htmlFor="price" className="block text-sm font-medium leading-6 text-gray-900 mt-2">
             Categoria
           </label>
           <div className="relative mt-2 rounded-md shadow-sm">
-            <select id="category" className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <select id="category" className="block text-left w-full rounded-md border-0 py-2 px-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600">
               <option value="comida">Comida</option>
               <option value="compras">Compras</option>
               <option value="antojo">Antojos</option>
               <option value="gasolina">Gasolina</option>
+              <option value="salario">Salario</option>
             </select>
           </div>
         </div>
 
         <div>
-          <label htmlFor="price" className="block text-sm font-medium leading-6 text-gray-900">
+          <label htmlFor="price" className="block text-sm font-medium leading-6 text-gray-900 mt-2">
             Valor
           </label>
           <div className="relative mt-2 rounded-md shadow-sm">
@@ -84,7 +82,7 @@ function AddSpent() {
               type="number"
               name="price"
               id="price"
-              className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              className="block text-left w-full rounded-md border-0 py-2 px-7 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
               placeholder="0.00"
             />
           </div>
@@ -96,7 +94,9 @@ function AddSpent() {
           </button>
         </div>
       </form>
-
+      <div className="btn-add-spent top-5 right-0 px-5 py-3 w-28 flex items-center justify-center text-center text-3xl px-2 py-2 text-white bg-lime-400 rounded-full hover:bg-lime-400 transition ease-in-out mt-3 cursor-pointer" onClick={() => toggleSpentForm()}>
+        + <span className="text-lg ms-3 hidden">Agregar gasto</span>
+      </div>
     </div>
   )
 }

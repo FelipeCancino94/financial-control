@@ -1,25 +1,40 @@
 .spent {
-  display: flex;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  margin: 0 3px;
   border-radius: 1rem;
-  border: solid white 1px;
-  grid-template-columns: repeat(3, 1fr) 100px 100px;
+  border: solid #ccc 1px;
+  grid-template-columns: 1fr 150px;
 }
+
 .spent[category="comida"]{
   background-color: rgb(246, 190, 85);
 }
+
 .spent[category="compras"]{
   background-color: rgb(118, 192, 214);
 }
+
 .spent[category="antojo"]{
   background-color: rgb(205, 138, 236);
 }
+
 .spent[category="gasolina"]{
   background-color: rgb(240, 231, 99);
 }
+
+.spent[category="salario"]{
+  background-color: rgb(59, 241, 42);
+  color: #fff;
+}
+
+.spent .left-column {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 @media only screen and (min-width: 480px) {
   p.date{
     display: flex;
   }
-  }
+}
