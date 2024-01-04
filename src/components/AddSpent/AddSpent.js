@@ -66,6 +66,8 @@ function AddSpent() {
               <option value="antojo">Antojos</option>
               <option value="gasolina">Gasolina</option>
               <option value="salario">Salario</option>
+              <option value="factura">Facturas</option>
+              <option value="ahorro">ahorro</option>
             </select>
           </div>
         </div>

@@ -29,6 +29,8 @@ function MonthlyBalance({ listOfSpents }) {
     const antojosAmount = listOfSpents.filter((spent) => spent.category === 'antojo').reduce((total, spent) => total + spent.value, 0);
     const gasolinaAmount = listOfSpents.filter((spent) => spent.category === 'gasolina').reduce((total, spent) => total + spent.value, 0);
     const salarioAmount = listOfSpents.filter((spent) => spent.category === 'salario').reduce((total, spent) => total + spent.value, 0);
+    const ahorroAmount = listOfSpents.filter((spent) => spent.category === 'ahorro').reduce((total, spent) => total + spent.value, 0);
+    const facturaAmount = listOfSpents.filter((spent) => spent.category === 'factura').reduce((total, spent) => total + spent.value, 0);
 
     if (createdChart === false) {
       const ctx = document.getElementById('monthly-chart');
@@ -38,17 +40,21 @@ function MonthlyBalance({ listOfSpents }) {
           'Compras',
           'Antojos',
           'Gasolina',
-          'Salario'
+          'Salario',
+          'ahorro',
+          'factura'
         ],
         datasets: [{
           label: 'My First Dataset',
-          data: [comidaAmount, comprasAmount, antojosAmount, gasolinaAmount, salarioAmount],
+          data: [comidaAmount, comprasAmount, antojosAmount, gasolinaAmount, salarioAmount, ahorroAmount, facturaAmount],
           backgroundColor: [
             'rgb(246, 190, 85)',
             'rgb(118, 192, 214)',
             'rgb(205, 138, 236)',
             'rgb(240, 231, 99)',
-            'rgb(59, 241, 42)'
+            'rgb(59, 241, 42)',
+            'rgb(0, 30, 255)',
+            'rgb(247, 79, 79)'
           ],
           hoverOffset: 4
         }]

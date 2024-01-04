@@ -19,12 +19,12 @@ function SpentList() {
       yearName: '2024',
       monthDate: '2024-01'
     },
-    {
+    /* {
       id: 1,
       monthName: 'Febrero',
       yearName: '2024',
       monthDate: '2024-02'
-    }
+    } */
   ]
 
   /* function getSpends(startDate, endDate) {
@@ -59,7 +59,7 @@ function SpentList() {
       try {
         const data = await getDocs(spendsCollectionRef);
         const filteredData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-        setSpendsList(filteredData);
+        setSpendsList(filteredData.sort((a, b) => a.date.seconds - b.date.seconds));
       }
       catch (error) {
         console.error(error);
