@@ -26,6 +26,16 @@
   color: #fff;
 }
 
+.spent[category="ahorro"]{
+  background-color: rgb(0, 30, 255);
+  color: #fff;
+}
+
+.spent[category="factura"]{
+  background-color: rgb(247, 79, 79);
+  color: #fff;
+}
+
 .spent .left-column {
   align-items: flex-start;
   display: flex;
